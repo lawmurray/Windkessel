@@ -21,13 +21,13 @@ function prepare_input
     s = repmat(linspace(0, Ts, Ts/delta), 1, n)(:);
     t = r + s - 24;
     
-    Fa = Fmax*sin(pi*s/Ts).^2;
+    F = Fmax*sin(pi*s/Ts).^2;
     
     nc = netcdf('data/input.nc', 'c');
     nc('nr') = length (t);
     nc{'time'} = ncdouble ('nr');
-    nc{'Fa'} = ncdouble ('nr');
+    nc{'F'} = ncdouble ('nr');
     nc{'time'}(:) = t;
-    nc{'Fa'}(:) = Fa;
+    nc{'F'}(:) = F;
     ncclose (nc);
 end
