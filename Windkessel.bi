@@ -8,8 +8,8 @@ model Windkessel {
   param C         // arterial compliance, ml (mm Hg)**-1
   param Z         // characteristic impedence, mm Hg s ml**-1
   param sigma2    // process noise variance, (mm Hg)**2
-  input F         // aortic flow (ml s**-1)
-  noise xi        // noise, mm Hg
+  input F         // aortic flow, ml s**-1
+  noise xi        // noise, ml s**-1
   state Pp        // peripheral pressure, mm Hg
   obs Pa          // observed aortic pressure, mm Hg
 
