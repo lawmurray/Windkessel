@@ -20,7 +20,7 @@ function prepare_init
     nc{'R'}(:) = 0.95;
     nc{'C'}(:) = 1.5;
     nc{'Z'}(:) = 0.033;
-    nc{'sigma2'}(:) = 16.0;
+    nc{'sigma2'}(:) = 100.0;
     
     ncclose (nc);
 end
