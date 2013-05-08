@@ -34,9 +34,9 @@ model Windkessel {
   }
 
   sub proposal_parameter {
-    R ~ gaussian(R, 0.03)
-    C ~ gaussian(C, 0.1)
-    Z ~ gaussian(Z, 0.002)
+    R ~ truncated_gaussian(R, 0.03, lower = 0.0)
+    C ~ truncated_gaussian(C, 0.1, lower = 0.0)
+    Z ~ truncated_gaussian(Z, 0.002, lower = 0.0)
     sigma2 ~ inverse_gamma(2.0, 3.0*sigma2)
   }
 }
