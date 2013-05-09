@@ -1,3 +1,4 @@
 #!/bin/sh
 
-bi sample @config.conf --target prior --model-file Windkessel.bi
+bi sample @config.conf @prior.conf
+bi sample @config.conf @posterior.conf

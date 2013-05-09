@@ -7,4 +7,9 @@ init.sh
 run.sh
 Windkessel.bi
 config.conf
-data
+filter.conf
+posterior.conf
+prior.conf
+data/init.nc
+data/input.nc
+data/obs.nc
