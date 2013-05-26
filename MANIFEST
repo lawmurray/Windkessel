@@ -1,8 +1,8 @@
 MANIFEST
-META
-README
 LICENSE
-VERSION
+META.yml
+README.md
+VERSION.md
 init.sh
 run.sh
 Windkessel.bi
