@@ -1,4 +1,4 @@
 #!/bin/sh
 
-bi sample @config.conf @prior.conf
-bi sample @config.conf @posterior.conf
+libbi sample @config.conf @prior.conf
+libbi sample @config.conf @posterior.conf
