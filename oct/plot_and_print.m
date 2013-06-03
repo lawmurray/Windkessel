@@ -14,6 +14,8 @@ function plot_and_print ()
     ps = [5001:20000];
     ax = [0 2.4 50 200];  % axis extends for time vs pressure plots
 
+    mkdir(figDir);
+
     % state estimates
     set (figure(1), 'papersize', [11 8]);
     set (figure(1), 'paperposition', [0 0 11 8]);
