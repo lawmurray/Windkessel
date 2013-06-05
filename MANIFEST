@@ -5,6 +5,7 @@ README.md
 VERSION.md
 init.sh
 run.sh
+qsub_run.sh
 Windkessel.bi
 config.conf
 filter.conf
@@ -13,3 +14,6 @@ prior.conf
 data/init.nc
 data/input.nc
 data/obs.nc
+oct/plot_and_print.m
+oct/prepare_init.m
+oct/prepare_input.m
