@@ -17,7 +17,7 @@ model Windkessel {
     R ~ gamma(2.0, 0.9)
     C ~ gamma(2.0, 1.5)
     Z ~ gamma(2.0, 0.03)
-    sigma2 ~ inverse_gamma(2.0, 1000.0)
+    sigma2 ~ inverse_gamma(2.0, 25.0)
   }
 
   sub initial {

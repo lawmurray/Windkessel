@@ -79,7 +79,7 @@ function plot_and_print ()
     subplot(3, 2, 6);
     bi_hist ('results/posterior.nc', 'sigma2', [], ps, [], 12);
     hold on;
-    bi_plot_prior (linspace(axis()(1), axis()(2), 500), @invgampdf, {2.0, 1000.0});
+    bi_plot_prior (linspace(axis()(1), axis()(2), 500), @invgampdf, {2.0, 25.0});
     hold off;
     legend({'posterior'; 'prior'});
     grid on;
