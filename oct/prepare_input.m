@@ -12,22 +12,24 @@
 %
 function prepare_input
     delta = 0.01;  % time step (s)
-    n = 33;         % number of cycles
+    n = 33;        % number of cycles
     Tc = 0.8;      % period (s)
     Ts = 0.3;      % systolic part of period (s)
     Fmax = 500.0;  % maximum flow (mL/s)
 
-    r = repmat([0:n-1]*Tc, ceil(Ts/delta), 1)(:);
-    s = repmat(linspace(0, Ts, Ts/delta), 1, n)(:);
+    r = repmat([0:n]*Tc, Ts/delta + 1, 1)(:);
+    s = repmat(linspace(0, Ts, Ts/delta + 1), 1, n + 1)(:);
     t = r + s - 24;
     
     F = Fmax*sin(pi*s/Ts).^2;
     
-    nc = netcdf('data/input.nc', 'c');
-    nc('nr') = length (t);
-    nc{'time'} = ncdouble ('nr');
-    nc{'F'} = ncdouble ('nr');
-    nc{'time'}(:) = t;
-    nc{'F'}(:) = F;
-    ncclose (nc);
+    file = 'data/input.nc';
+    try
+      nccreate(file, 'time', 'Dimensions', {'nr'; length(t)});
+      nccreate(file, 'F', 'Dimensions', {'nr'; length(t)});
+    catch
+      % assume variables already exist
+    end
+    ncwrite(file, 'time', t);
+    ncwrite(file, 'F', F);
 end

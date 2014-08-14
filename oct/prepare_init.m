@@ -11,16 +11,17 @@
 % @end deftypefn
 %
 function prepare_init
-    nc = netcdf('data/init.nc', 'c');
-    nc{'R'} = ncdouble ();
-    nc{'C'} = ncdouble ();
-    nc{'Z'} = ncdouble ();
-    nc{'sigma2'} = ncdouble ();
-    
-    nc{'R'}(:) = 0.95;
-    nc{'C'}(:) = 1.5;
-    nc{'Z'}(:) = 0.033;
-    nc{'sigma2'}(:) = 100.0;
-    
-    ncclose (nc);
+    file = 'data/init.nc';
+    try
+        nccreate(file, 'R');
+        nccreate(file, 'C');
+        nccreate(file, 'Z');
+        nccreate(file, 'sigma2');
+    catch
+        % assume variables already exist...
+    end
+    ncwrite(file, 'R', 0.95);
+    ncwrite(file, 'C', 1.5);
+    ncwrite(file, 'Z', 0.033);
+    ncwrite(file, 'sigma2', 50000.0);
 end

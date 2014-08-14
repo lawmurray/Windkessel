@@ -22,7 +22,7 @@ function plot_and_print ()
     orient ('portrait');
 
     subplot(3, 2, 1);
-    bi_plot_paths ('data/input.nc', 'F', [], [], [901:990], 1, 1);
+    bi_plot_paths ('data/input.nc', 'F', [], [], [], 1, 1);
     grid on;
     xlabel('t (s)');
     ylabel('F (ml s^{-1})');
@@ -41,7 +41,7 @@ function plot_and_print ()
     legend({'prior P_p'; ''; 'posterior P_p'; ''; 'observed P_a'});
 
     subplot(3, 2, 3);
-    bi_hist ('results/posterior.nc', 'R', [], ps, [], 12);
+    bi_hist ('results/posterior.nc', 'R', [], ps, [], 16);
     hold on;
     bi_plot_prior (linspace(axis()(1), axis()(2), 500), @gampdf, {2.0, 0.9});
     hold off;
@@ -53,7 +53,7 @@ function plot_and_print ()
     axis([ax1(1) ax1(2) ax1(3) 1.2*ax1(4)]);
 
     subplot(3, 2, 4);
-    bi_hist ('results/posterior.nc', 'C', [], ps, [], 12);
+    bi_hist ('results/posterior.nc', 'C', [], ps, [], 16);
     hold on;
     bi_plot_prior (linspace(axis()(1), axis()(2), 500), @gampdf, {2.0, 1.5});
     hold off;
@@ -65,7 +65,7 @@ function plot_and_print ()
     axis([ax1(1) ax1(2) ax1(3) 1.2*ax1(4)]);
 
     subplot(3, 2, 5);
-    bi_hist ('results/posterior.nc', 'Z', [], ps, [], 12);
+    bi_hist ('results/posterior.nc', 'Z', [], ps, [], 16);
     hold on;
     bi_plot_prior (linspace(axis()(1), axis()(2), 500), @gampdf, {2.0, 0.03});
     hold off;
@@ -77,9 +77,9 @@ function plot_and_print ()
     axis([ax1(1) ax1(2) ax1(3) 1.2*ax1(4)]);
 
     subplot(3, 2, 6);
-    bi_hist ('results/posterior.nc', 'sigma2', [], ps, [], 12);
+    bi_hist ('results/posterior.nc', 'sigma2', [], ps, [], 16);
     hold on;
-    bi_plot_prior (linspace(axis()(1), axis()(2), 500), @invgampdf, {2.0, 25.0});
+    bi_plot_prior (linspace(axis()(1), axis()(2), 500), @invgampdf, {2.0, 500000.0});
     hold off;
     legend({'posterior'; 'prior'});
     grid on;

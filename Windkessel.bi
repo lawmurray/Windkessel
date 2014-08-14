@@ -17,7 +17,7 @@ model Windkessel {
     R ~ gamma(2.0, 0.9)
     C ~ gamma(2.0, 1.5)
     Z ~ gamma(2.0, 0.03)
-    sigma2 ~ inverse_gamma(2.0, 25.0)
+    sigma2 ~ inverse_gamma(2.0, 500000.0)
   }
 
   sub initial {
@@ -25,7 +25,7 @@ model Windkessel {
   }
 
   sub transition(delta = h) {
-    xi ~ gaussian(0.0, h*sqrt(sigma2))
+    xi ~ gaussian(0.0, sqrt(h*sigma2))
     Pp <- exp(-h/(R*C))*Pp + R*(1.0 - exp(-h/(R*C)))*(F + xi)
   }
 
