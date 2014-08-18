@@ -10,6 +10,7 @@ Windkessel.bi
 config.conf
 filter.conf
 posterior.conf
+posterior_sir.conf
 prior.conf
 data/init.nc
 data/input.nc
