@@ -11,7 +11,7 @@
 %
 function plot_and_print ()
     figDir = 'figs';
-    ps = [5001:20000]; % sample range for PMMH
+    ps = [5001:50000]; % sample range for PMMH
     mkdir(figDir);
 
     % state estimates
@@ -87,12 +87,12 @@ function plot_and_print ()
     legend({'posterior'; 'prior'});
     legend('boxoff');
     grid on;
-    xlabel ('\sigma^2 ((mm Hg)^2 \times 10^6)');
-    ylabel ('p(\sigma^2) (\times 10^{-6})');
+    xlabel ('\sigma^2 (mm^2 Hg^2)');
+    ylabel ('p(\sigma^2)');
     ax = axis();
     axis([ax(1) ax(2) ax(3) 1.2*ax(4)]);
-    set (gca, 'xticklabel', get(gca, 'xtick')/1e6);
-    set (gca, 'yticklabel', get(gca, 'ytick')*1e6);
+    %set (gca, 'xticklabel', get(gca, 'xtick')/1e6);
+    %set (gca, 'yticklabel', get(gca, 'ytick')*1e6);
 
-    saveas (figure(1), sprintf('%s/windkessel.pdf', figDir));
+    saveas (figure(1), sprintf('%s/windkessel.svg', figDir));
 end
